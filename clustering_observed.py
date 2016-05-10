@@ -9,7 +9,7 @@ import numpy as np
 # average_clustering will ignore non-numbers in its average. Setting undefined=None, for example, ignores leaves. 
 def clustering(graph, observed='all', undefined=0.0):
     results = []
-    if observed == 'all': full = True
+    full = True if observed == 'all' else False
     if type(undefined) is int: undefined = float(undefined)
     for v in graph:
         neighbor_ids = set(graph.neighbors(v))
@@ -27,7 +27,7 @@ def clustering(graph, observed='all', undefined=0.0):
 
 def avg_clustering(graph, observed='all', undefined=0.0):
     results = []
-    if observed == 'all': full = True
+    full = True if observed == 'all' else False
     if type(undefined) is int: undefined = float(undefined)
     for v in graph:
         neighbor_ids = set(graph.neighbors(v))
